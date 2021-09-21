@@ -7,7 +7,7 @@ import 'antd/dist/antd.css';
 
 function App() {
     const [shows,setShows] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
    
     useEffect (() => {
       const  fetchData = async() => {
