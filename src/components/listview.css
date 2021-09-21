@@ -1,0 +1,23 @@
+.card-wrapper{
+    width: 100%;
+    padding: 0 10%;
+}
+
+.cover-image{
+    width:300px;
+    max-height: 350px;
+}
+
+.btn-link{
+    font-size: 16px;
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    background-color: #404fd2;
+    margin-top: 20px;
+}
+.ant-card{
+    margin: 20px auto !important;
+}

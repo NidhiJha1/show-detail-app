@@ -20,7 +20,6 @@ function App() {
              const result = await response.json();
              setShows(result);
              setIsLoading(false);
-             console.log(result);
     
            }catch(error){
              console.log(error);
