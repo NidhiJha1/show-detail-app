@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,15 +13,37 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.table-wrapper{
+  overflow-x:auto;
+}
+
+.card-wrapper{
+  width:100%;
+  padding: 0px 10%;
+}
+
+.ant-card {
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  margin:20px auto !important;
+  text-align: left;
+}
+
+.ant-card-bordered {
+  border: 1px solid #989a9b !important;
+}
+
+.ant-card-head{
+  border-bottom: none;
 }

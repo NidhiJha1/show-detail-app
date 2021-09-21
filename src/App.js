@@ -1,23 +1,51 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import DataList from './components/listview';
+import {Route} from 'react-router-dom';
+import DataDetailPage from './components/detailview';
+import 'antd/dist/antd.css';
 
 function App() {
+    const [shows,setShows] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+   
+    useEffect (() => {
+      const  fetchData = async() => {
+          setIsLoading(true);
+           try{
+             const response = await fetch('https://api.tvmaze.com/search/shows?q=all');
+             if(!response.ok){
+              throw new Error('Something went Wrong');
+            }
+             const result = await response.json();
+             setShows(result);
+             setIsLoading(false);
+             console.log(result);
+    
+           }catch(error){
+             console.log(error);
+           }
+      };
+      fetchData();
+    },[]);
+
+    if(isLoading){
+      return (
+        <div className="loading-wrapper"><p>Loading...</p></div>
+      );
+    }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+   <Route path='/' exact>   
+       <DataList shows={shows}/>
+   </Route>
+
+   <Route path='/detail/:id'>   
+       <DataDetailPage shows={shows}/>
+   </Route>
+
     </div>
   );
 }
